@@ -1,0 +1,105 @@
+.block {
+	position: absolute;
+	top: 0;
+	height: 100%;
+
+	&_title {
+		padding-top: $header-height-pc;
+		padding-left: $side-padding-pc;
+		position: fixed;
+		width: $block-title-full-width-pc;
+
+		@include media(w1366) {
+			width: $block-title-full-width-note;
+		}
+
+		@include media(w1024) {
+			padding-left: $side-padding-tablet;
+			padding-right: $side-padding-tablet;
+			order: 2;
+		}
+	}
+
+	&_content {
+		left: $block-title-full-width-pc;
+		padding-right: $block-info-width-pc;
+		padding-top: $header-height-pc;
+		height: auto;
+		width: calc(100% - #{$block-title-full-width-pc});
+
+		@include media(w1366) {
+			left: $block-title-full-width-note;
+			padding-right: $block-info-width-note;
+			width: calc(100% - #{$block-title-full-width-note});
+		}
+
+		@include media(w1024) {
+			padding-left: $side-padding-tablet;
+			padding-right: $side-padding-tablet;
+			order: 3;
+		}
+	}
+
+	// &_content-full {
+	// 	left: $block-title-full-width-pc;
+	// 	padding-top: $header-height-pc;
+	// 	padding-right: $side-padding-pc;
+	// 	height: auto;
+	// 	min-height: 100vh;
+	// 	width: calc(100% - #{$block-title-full-width-pc});
+
+	// 	@include media(w1366) {
+	// 		left: $block-title-full-width-note;
+	// 		width: calc(100% - #{$block-title-full-width-note});
+	// 	}
+
+	// 	@include media(w1024) {
+	// 		padding-left: $side-padding-tablet;
+	// 		order: 3;
+	// 	}
+	// }
+
+	&_content-full {
+		left: 0;
+		padding-top: calc(#{$header-height-pc} + 130px);
+		padding-right: $side-padding-pc;
+		min-height: 100vh;
+		width: 100%;
+
+		// @include media(w1366) {
+		// 	left: $block-title-full-width-note;
+		// 	width: calc(100% - #{$block-title-full-width-note});
+		// }
+
+		@include media(w1024) {
+			padding-left: $side-padding-tablet;
+			padding-right: $side-padding-tablet;
+			order: 3;
+			min-height: auto;
+			height: auto;
+		}
+	}
+
+	&_info {
+		position: fixed;
+		right: 0;
+		width: $block-info-width-pc;
+		
+		@include media(w1366) {
+			width: $block-info-width-note;
+		}
+
+		@include media(w1024) {
+			order: 1;
+			overflow: hidden;
+			height: 62vw;
+		}
+	}
+	
+	@include media(w1024) {
+		margin-bottom: 20px;
+		padding-top: 0;
+		position: static;
+		width: auto;
+	}
+}

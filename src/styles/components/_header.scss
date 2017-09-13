@@ -1,0 +1,251 @@
+.header {
+	color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: $header-height-tablet;
+	width: 100%;
+	z-index: 2;
+
+	@include media(w1024) {
+		background-color: white;
+	}
+
+	&__col {
+		position: absolute;
+		top: 0;
+		
+		&_left {
+			width: calc(100% - #{$block-info-width-pc});
+
+			@include media(w1366) {
+				width: calc(100% - #{$block-info-width-note});
+			}
+
+			@include media(w1024) {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0 $side-padding-tablet;
+				position: static;
+				height: $header-height-tablet;
+				width: 100%;
+			}
+		}
+
+		&_right {
+			right: 0;
+			width: $block-info-width-pc;
+
+			@include media(w1366) {
+				width: $block-info-width-note;
+			}
+
+			@include media(w1024) {
+				transition: $trans;
+				transform: translateX(100%);
+				background-color: rgba(48,48,48,0.8);
+				padding-right: $side-padding-tablet;
+				padding-left: $side-padding-tablet;
+				position: fixed;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				z-index: 3;
+			}
+		}
+	}
+
+	&__logo {
+		transition: $trans;
+		background-color: $gray-lightest;
+		display: flex;
+		align-items: flex-end;
+		padding-top: 50px;
+		padding-bottom: 40px;
+		padding-left: $side-padding-pc;
+		position: relative;
+		z-index: 2;
+
+		@include media(w1024) {
+			padding: 0;
+		}
+	}
+
+	&__logo-img {
+		display: block;
+		max-width: 260px;
+
+		@include media(w1024) {
+			max-width: 120px;
+		}
+	}
+
+	&__menu-btn {
+		display: none;
+		position: relative;
+		z-index: 2;
+
+		&_active {
+			z-index: 10;
+
+			.btn_menu {
+
+				&:before,
+				&:after {
+					background-color: $gray;
+				}
+
+				&:before {
+					transform: translateY(-50%) rotate(45deg);
+					top: 50%;
+				}
+
+				&:after {
+					transform: translateY(50%) rotate(-45deg);
+					bottom: 50%;
+				}
+			}
+
+			.btn__menu {
+				opacity: 0;
+			}
+		}
+
+		@include media(w1024) {
+			display: block;
+		}
+	}
+
+	&__info {
+		text-align: right;
+		padding-top: 48px;
+		padding-left: calc(#{$side-padding-pc} + 20px);
+		padding-right: $side-padding-pc;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+
+		@include media(w1024) {
+			display: flex;
+			flex-flow: column;
+			justify-content: center;
+			overflow: hidden;
+			padding: 0;
+			position: relative;
+			top: auto;
+			left: auto;
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	&__info-top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		@include media(w1700) {
+			display: block;
+			text-align: right;
+		}
+
+		@include media(w1024) {
+			transition: $trans;
+			transform: translateX(30%);
+			text-align: center;
+		}
+	}
+
+	&__nav-list {
+		text-transform: uppercase;
+		display: flex;
+
+		@include media(w1700) {
+			display: block;
+		}
+	}
+
+	&__nav-item {
+		white-space: nowrap;
+
+		@include media(w1700) {
+			margin-bottom: 20px;
+			white-space: normal;
+		}
+		
+		&:not(:last-child):after {
+			content: "";
+			background-color: white;
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 10px;
+			height: 1px;
+			width: 2.8vw;
+			max-width: 60px;
+
+			@include media(w1700) {
+				display: none;
+			}
+		}
+	}
+
+	&__nav-link {
+		display: inline-block;
+		color: white;
+		font-weight: 500;
+		text-decoration: none;
+		vertical-align: middle;
+	}
+
+	&__info-logo {
+
+		@include media(w1024) {
+			display: none;
+		}
+	}
+
+	&__info-bottom {
+		padding-right: $side-padding-pc;
+		position: fixed;
+		bottom: 40px;
+		right: 0;
+		width: calc(#{$block-info-width-pc} - #{$side-padding-pc});
+
+		@include media(w1024) {
+			position: absolute;
+			padding: 0;
+			width: 100%;
+		}
+	}
+
+	&__info-copy {
+		font-size: 12px;
+		font-weight: 200;
+		letter-spacing: 1px;
+		line-height: 1;
+		text-align: right;
+		overflow: hidden;
+
+		@include media(w1024) {
+			text-align: center;
+		}
+	}
+
+	&__info-copy-text {
+		display: inline-block;
+		position: relative;
+
+		&:before {
+			content: "";
+			background-color: currentColor;
+			margin-top: -1px;
+			position: absolute;
+			top: 50%;
+			right: calc(100% + 15px);
+			height: 1px;
+			width: 118px;
+		}
+	}
+}

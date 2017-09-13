@@ -1,0 +1,43 @@
+$trans: all 0.3s ease;
+
+$header-height-pc: 160px;
+$header-height-tablet: 60px;
+
+$btn-menu-height: 14px;
+$btn-menu-width: 20px;
+$btn-menu-line-height: 2px;
+
+$top-padding-pc: 50px;
+
+$side-padding-pc: 80px;
+$side-padding-tablet: 20px;
+
+$max-width-value: 1160px;
+$max-width: calc(#{$max-width-value} + 2 * #{$side-padding-pc});
+$min-width: 320px;
+
+$block-title-width-pc: 300px;
+$block-title-width-note: 220px;
+
+$block-title-full-width-pc: calc(#{$block-title-width-pc} + #{$side-padding-pc});
+$block-title-full-width-note: calc(#{$block-title-width-note} + #{$side-padding-pc});
+
+$block-content-width-pc: calc(100% - #{$block-title-width-pc});
+$block-content-width-note: calc(100% - #{$block-title-width-note});
+
+$block-info-width-pc: 44.4%;
+$block-info-width-note: 38%;
+
+$col-left-width: 56%;
+$col-right-width: calc(100% - #{$col-left-width});
+
+$gallery-arrow-size-pc: 60px;
+$gallery-arrow-size-mobile: 30px;
+
+$blue: #303392;
+
+$gray-lightest: #f9f9f9;
+$gray-lighten: #eaeaea;
+$gray-light: #d8d8d8;
+$gray: #bdc6cf;
+$gray-darken: #676767;

@@ -1,0 +1,41 @@
+.certificates {
+	background-color: $gray-lighten;
+	
+	.header {
+		color: black;
+
+		@include media(w1024) {
+			color: white;
+		}
+	}
+
+	.header__logo {
+		background-color: transparent;
+	}
+
+	.header__nav-item {
+
+		&:not(:last-child):after {
+			background-color: black;
+
+			@include media(w1024) {
+				background-color: white;
+			}
+		}
+	}
+
+	.header__nav-link {
+		color: black;
+
+		@include media(w1024) {
+			color: white;
+		}
+	}
+
+	.block_title {
+
+		@include media(w1024) {
+			padding-top: 20px;
+		}
+	}
+}

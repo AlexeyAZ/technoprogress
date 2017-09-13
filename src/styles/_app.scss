@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: $gray-lightest;
+    font-family: "MuseoSansCyrl", Arial, Helvetica, sans-serif;
+    position: relative;
+    line-height: 1.5;
+    min-width: $min-width;
+}
+
+.menu-open {
+
+    .header__logo {
+        transform: translateX(-190%);
+    }
+
+    .header__col_right {
+        transform: translateX(0);
+        background-color: rgba(48,48,48,1);
+    }
+
+    .header__info-top {
+        transform: translateX(0);
+    }
+
+    .content {
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,30 @@
+extends ../templates/layout
+
+block vars
+	- var title = 'Контакты';
+	- var bodyClass = "certificates";
+	- var galleryItems = [['Компания ООО "Технопрогресс" является авторизованным бизнес партнером компании «Аквариус» и имеет статус "Золотой партнер".', 'Aquarius'], ['', 'Fujitsu Technology Solutions.']];
+
+block content
+	div.content
+		div.block.block_title
+			div.content__title.
+				СЕРТИФИКАТЫ
+		div.block.block_content-full
+			div.content__gallery
+				div.content__gallery-wrap
+					div.swiper-container.gallery
+						div.swiper-wrapper
+							- for (var i = 0; i < 5; i++) {
+								each item, index in galleryItems
+									div.swiper-slide.gallery__slide
+										img(src="img/cert_" + (index + 1) + ".jpg").gallery__img
+										div.gallery__descr
+											div.gallery__text
+												=item[0]
+											div.gallery__title
+												=item[1]
+							- }
+					div.gallery__arrow.gallery__arrow_left
+					div.gallery__arrow.gallery__arrow_right
+				div.swiper-pagination

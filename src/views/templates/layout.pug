@@ -1,0 +1,27 @@
+doctype html
+
+- var title = 'Project title';
+- var bodyClass = "";
+
+block vars
+    
+html
+    head
+        meta(charset="utf-8")
+        meta(name="description", content="")
+        meta(name="viewport", content="width=device-width, initial-scale=1, minimal-ui")
+        title #{title}
+        link(rel="icon" type="image/png" href="favicon.png" sizes="16x16")
+        link(rel="stylesheet", href="styles/vendor.css")
+        link(rel="stylesheet", href="styles/main.css")
+        block scripts
+    body(class=bodyClass)
+        include ../components/svg
+        div.wrapper
+            include ../components/page-transition
+            include ../components/header
+            block content
+            include ../components/footer
+        script(src="scripts/vendor.js" defer)
+        script(src="scripts/app.js" defer)
+        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZgQ_QxMCEdDStSX3N0Zmw8e-DV-pYAww" defer)

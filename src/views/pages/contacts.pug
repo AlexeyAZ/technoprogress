@@ -1,0 +1,27 @@
+extends ../templates/layout
+
+block vars
+	- var title = 'Контакты'
+	- var contactsList = [["map-mark", "Адрес", "108811, г. Москва, пос. Московский, 22 км Киевского шоссе, домовладение 6, строение 1."],["phone", "Телефон", "<p>+7 (495) 781-37-17,<br>+7 (495) 956-75-86</p>"], ["print", "Факс", "+7 (495) 956-75-87"], ["mail", "E-mail", "mail@mail.ru"]];
+
+block content
+	div.content.contacts
+		div.block.block_title
+			div.content__title.
+				Наши контакты
+		div.block.block_content
+			div.content__text
+				h3.contacts__title.
+					ООО "Технопрогресс"
+				div.contacts__list
+					each item in contactsList
+						div(style="background-image:url(img/icon-" + item[0] + ".png)").contacts__list-item
+							div.contacts__list-title
+								=item[1]
+								|:
+							div.contacts__list-text.
+								!{item[2]}
+				a(href="").btn.btn_rect.
+					Связаться с нами
+		div.block.block_info
+			div.content__map

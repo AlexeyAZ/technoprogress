@@ -1,0 +1,26 @@
+.contacts {
+
+	&__title {
+		margin-bottom: 75px;
+
+		@include media(w1024) {
+			margin-bottom: 30px;
+		}
+	}
+
+	&__list-item {
+		background-position: left top 4px;
+		background-repeat: no-repeat;
+		margin-bottom: 30px;
+		padding-left: 40px;
+	}
+	
+	&__list-title {
+		//font-weight: 500;
+		margin-bottom: 1em;
+	}
+
+	&__list-text {
+		font-weight: 600;
+	}
+}

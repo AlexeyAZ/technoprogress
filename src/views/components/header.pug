@@ -1,0 +1,25 @@
+- var navItems = [["О компании", "index.html"], ["Сертификаты", "certificates.html"], ["Контакты", "contacts.html"]];
+
+header.header
+	div.header__col.header__col_left
+		div.header__logo
+			a(href="").header__logo-link
+				img(src="img/header-logo.png", alt="").header__logo-img
+		div.header__menu-btn.js-open-menu
+			div.btn.btn_menu
+				div.btn__menu
+	div.header__col.header__col_right
+		div.header__info
+			div.header__info-top
+				div.header__nav
+					ul.header__nav-list
+						each item in navItems
+							li.header__nav-item
+								a(href=item[1]).header__nav-link.js-nav-link
+									=item[0]
+				a(href="").header__info-logo
+					img(src="img/ibm.png", alt="")
+			div.header__info-bottom
+				div.header__info-copy
+					div.header__info-copy-text.
+						2018 © ООО «Техноконсалтинг»
