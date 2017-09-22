@@ -45,6 +45,10 @@
 		p {
 			margin-bottom: 1.5em;
 		}
+		
+		h3 {
+			margin-top: 3.8em;
+		}
 
 		h4 {
 			font-weight: 600;
@@ -76,14 +80,14 @@
 	}
 
 	&__img {
-		background-image: url("../img/main-img.jpg");
+		background-image: url("../img/main-img1.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center top;
 		height: 100vh;
 
 		@include media(w1366) {
-			background-position: right top;
+			background-position: right -16vw top;
 		}
 
 		@include media(w1024) {
@@ -94,8 +98,12 @@
 	}
 
 	&__map {
-		height: 100%;
+		height: 100vh;
 		width: 100%;
+
+		@include media(w1024) {
+			height: 100%;
+		}
 	}
 
 	&__gallery-wrap {
@@ -133,6 +141,26 @@
 			margin-right: -$side-padding-tablet;
 			padding-left: 0;
 			padding-right: 0;
+		}
+	}
+
+	&__error-text {
+		font-size: 24px;
+		margin-bottom: 2em;
+
+		@include media(w768) {
+			font-size: 16px;
+		}
+	}
+
+	&__error-img {
+
+		@include media(w1024) {
+			padding-top: 20vw;
+		}
+
+		@include media(w768) {
+			max-width: 80%;
 		}
 	}
 }

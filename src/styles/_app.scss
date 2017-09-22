@@ -18,6 +18,22 @@ body {
     position: relative;
     line-height: 1.5;
     min-width: $min-width;
+    overflow-x: hidden;
+}
+
+.trans_exit {
+
+    .header__col_right {
+        
+    }
+    
+    .page-transition {
+        opacity: 1;
+    }
+
+    .wrapper {
+        transform: translateX(30%);
+    }
 }
 
 .menu-open {

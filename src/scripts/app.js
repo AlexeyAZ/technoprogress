@@ -41,6 +41,14 @@ const app = {
 			function open() {
 				btn.classList.add("header__menu-btn_active");
 				document.body.classList.add("menu-open");
+
+				var content = document.querySelector(".content");
+				content.addEventListener("transitionend", setContentPosition);
+				
+				function setContentPosition() {
+					//content.style.transform = "translateX(0)";
+					content.removeEventListener("transitionend", setContentPosition);
+				}
 			}
 
 			window.addEventListener("resize", function() {
@@ -296,54 +304,33 @@ const app = {
 		}
 		
 		var navLinks = document.querySelectorAll(".js-nav-link");
-
-		var trans = document.querySelector(".page-transition");
-		var item1 = document.querySelector(".page-transition__item_1");
-		var item3 = document.querySelector(".page-transition__item_3");
-
-		var items = document.querySelectorAll(".page-transition__item");
+		var transEl = document.querySelector(".page-transition");
 
 		setTimeout(function() {
-			trans.classList.add("page-transition_close");
-		}, 200);
-		
-		item1.addEventListener("transitionend", animOpen);
-
-		function animOpen() {
-			trans.style.display = "none";
-			trans.classList.remove("page-transition_open");
-			trans.classList.remove("page-transition_close");
-			item1.removeEventListener("transitionend", animOpen);
-
-			for (var i = 0; i < navLinks.length; i++) {
-				var link = navLinks[i];
-				link.style.pointerEvents = "none";
-			}
-
-			setTimeout(function() {
-				trans.style.display = "block";
-				
-				for (var i = 0; i < navLinks.length; i++) {
-					var link = navLinks[i];
-					link.style.pointerEvents = "auto";
-				}
-			}, 1000);
-		}
+			document.body.classList.remove("trans_exit");
+		}, 500);
 
 		for (var i = 0; i < navLinks.length; i++) {
 			var navLink = navLinks[i];
 
 			navLink.addEventListener("click", function(e) {
 				e.preventDefault();
-				openLink(this);
+
+				if (window.matchMedia("(max-width: 1024px)").matches) {
+					document.querySelector(".header").style.opacity = "0";
+				}
+
+				if (this.tagName === "A") {
+					openLink(this);
+				}
 			});
 		}
 
 		function openLink(el) {
 			var link = el.getAttribute("href");
 
-			trans.classList.add("page-transition_open");
-			item3.addEventListener("transitionend", function() {
+			document.body.classList.add("trans_exit");
+			transEl.addEventListener("transitionend", function() {
 				animClose(link);
 			});
 		}

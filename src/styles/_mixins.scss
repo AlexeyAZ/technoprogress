@@ -15,6 +15,10 @@
     @if $media == w1700 {
         @media only screen and (max-width: 1700px) { @content; }
     }
+    
+    @else if $media == w1680 {
+        @media only screen and (max-width: 1679px) { @content; }
+    }
 
     @else if $media == w1366 {
         @media only screen and (max-width: 1366px) { @content; }

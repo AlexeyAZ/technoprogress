@@ -43,7 +43,7 @@
 
 			@include media(w1024) {
 				transition: $trans;
-				transform: translateX(100%);
+				transform: translateX(100%) translateZ(0);
 				background-color: rgba(48,48,48,0.8);
 				padding-right: $side-padding-tablet;
 				padding-left: $side-padding-tablet;
@@ -68,6 +68,7 @@
 		z-index: 2;
 
 		@include media(w1024) {
+			background-color: transparent;
 			padding: 0;
 		}
 	}
@@ -120,7 +121,7 @@
 	&__info {
 		text-align: right;
 		padding-top: 48px;
-		padding-left: calc(#{$side-padding-pc} + 20px);
+		padding-left: calc(#{$side-padding-pc});
 		padding-right: $side-padding-pc;
 		position: absolute;
 		top: 0;
@@ -146,8 +147,9 @@
 		align-items: center;
 		justify-content: space-between;
 
-		@include media(w1700) {
-			display: block;
+		@include media(w1680) {
+			flex-flow: column;
+			align-items: flex-end;
 			text-align: right;
 		}
 
@@ -155,6 +157,17 @@
 			transition: $trans;
 			transform: translateX(30%);
 			text-align: center;
+			//display: block;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+		}
+	}
+
+	&__nav {
+		
+		@include media(w1024) {
+			order: 2;
 		}
 	}
 
@@ -162,7 +175,7 @@
 		text-transform: uppercase;
 		display: flex;
 
-		@include media(w1700) {
+		@include media(w1680) {
 			display: block;
 		}
 	}
@@ -170,7 +183,7 @@
 	&__nav-item {
 		white-space: nowrap;
 
-		@include media(w1700) {
+		@include media(w1680) {
 			margin-bottom: 20px;
 			white-space: normal;
 		}
@@ -182,10 +195,10 @@
 			vertical-align: middle;
 			margin: 0 10px;
 			height: 1px;
-			width: 2.8vw;
+			width: 2.6vw;
 			max-width: 60px;
 
-			@include media(w1700) {
+			@include media(w1680) {
 				display: none;
 			}
 		}
@@ -202,14 +215,16 @@
 	&__info-logo {
 
 		@include media(w1024) {
-			display: none;
+			position: absolute;
+			bottom: calc(30px + 6vh);
+			//display: none;
 		}
 	}
 
 	&__info-bottom {
 		padding-right: $side-padding-pc;
 		position: fixed;
-		bottom: 40px;
+		bottom: 30px;
 		right: 0;
 		width: calc(#{$block-info-width-pc} - #{$side-padding-pc});
 

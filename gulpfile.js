@@ -1,6 +1,6 @@
 const properties = {
     folders: {
-      build: 'build',
+      build: 'dist',
       src: 'src',
     }
 }
@@ -48,7 +48,7 @@ function onError(err) {
 gulp.task('browserSync', function() {
   bs.init({
     server: {
-      baseDir: "./build"
+      baseDir: "./" + properties.folders.build
     },
     //port: 8080,
     open: true,
@@ -96,7 +96,9 @@ gulp.task('vendor', function () {
 
 gulp.task('pug', function() {
     gulp.src(properties.folders.src + '/views/pages/*.pug')
-          .pipe(pug({}))
+          .pipe(pug({
+              pretty: true
+          }))
     .on('error', onError)
     .pipe(gulp.dest(properties.folders.build))
     .on('end', function(){
@@ -122,25 +124,10 @@ gulp.task('sass', function () {
 });
 
 
-gulp.task('files', function () {
-
-    let moveFiles = (arr, el) => {
-        
-        if (el) {
-            gulp.src(properties.folders.src + '/' + el + '/**/*.*')
-                .pipe(gulp.dest(properties.folders.build + '/' + el))
-        } else {
-            arr.forEach((el) => {
-
-                gulp.src(properties.folders.src + '/' + el + '/**/*.*')
-                    .pipe(gulp.dest(properties.folders.build + '/' + el))
-            });
-        }
-    }
-
-    moveFiles(filesList);
+gulp.task('favicon', function () {
+    gulp.src(properties.folders.src + '/favicons/**/*.*')
+        .pipe(gulp.dest(properties.folders.build))
 });
-
 
 
 gulp.task('svgSpriteBuild', function () {
@@ -195,8 +182,8 @@ gulp.task('build', [
     'scripts',
     'lint',
     'vendor',
-    'files',
-    'svgSpriteBuild'
+    'svgSpriteBuild',
+    'favicon'
 ]);
 
 gulp.task('watch', function() {
@@ -211,10 +198,6 @@ gulp.task('watch', function() {
 
     watch(properties.folders.src + '/scripts/**/*.js', function() {
         gulp.start(['lint', 'scripts']);
-    });
-
-    watch(filesList.map(function(el) {return (properties.folders.src + '/' + el + '/**/*.*')}), function() {
-        gulp.start('files');
     });
 
     watch(properties.folders.src + '/img/slide5/**/*.svg', function() {

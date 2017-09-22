@@ -1,31 +1,38 @@
 .page-transition {
 	transform: translate3d(0,0,0);
+	transition: $page-trans;
+	background-color: white;
+	opacity: 0;
 	pointer-events: none;
 	position: fixed;
 	top: 0;
 	left: 0;
-	height: 100%;
+	height: 100vh;
 	width: 100%;
 	z-index: 100;
 
 	&_open {
-
-		.page-transition__item {
-			width: 100%;
-
-			&_1 {
-				transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-			}
-
-			&_2 {
-				transition: 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.15s;
-			}
-
-			&_3 {
-				transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.3s;
-			}
-		}
+		opacity: 1;
 	}
+
+	// &_open {
+
+	// 	.page-transition__item {
+	// 		width: 100%;
+
+	// 		&_1 {
+	// 			transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	// 		}
+
+	// 		&_2 {
+	// 			transition: 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.15s;
+	// 		}
+
+	// 		&_3 {
+	// 			transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.3s;
+	// 		}
+	// 	}
+	// }
 
 	&_close {
 

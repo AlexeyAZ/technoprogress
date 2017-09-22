@@ -1,0 +1,14 @@
+extends ../templates/layout
+
+block vars
+	- var title = 'О компании'
+	- var bodyClass = "certificates";
+
+block content
+	div.content
+		div.block.block_main.ta-center
+			img(src="img/404.png" alt="").content__error-img
+			p.content__error-text.
+				Запрашиваемая страница не найдена
+			a(href="./").btn.btn_rect.
+				На главную
